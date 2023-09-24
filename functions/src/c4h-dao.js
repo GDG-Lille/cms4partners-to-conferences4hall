@@ -1,7 +1,7 @@
 const {firestore} = require("firebase-admin");
 const {getFirestore} = require("firebase-admin/firestore");
 
-exports.update = async (c4hId, companyId, event, address) => {
+exports.update = async (c4hId, companyId, event, address, media) => {
   const db = getFirestore();
   const docRef = db.collection("conferences4hall")
       .doc(c4hId)
@@ -22,6 +22,7 @@ exports.update = async (c4hId, companyId, event, address) => {
     twitterMessage: event.twitter ? event.twitter : null,
     linkedinUrl: hasLinkedin ? null : event.linkedinAccount,
     linkedinMessage: event.linkedin ? event.linkedin : null,
+    media: media,
     address: address ? address : {
       formatted: [event.address, `${event.zipCode} ${event.city}`],
       address: event.address,
