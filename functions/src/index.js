@@ -11,7 +11,7 @@ initializeApp();
 
 exports.updatePartnerToC4H = onDocumentUpdated(
     {
-      document: `companies-2023/{companyId}`,
+      document: `companies-2024/{companyId}`,
       secrets: [GEOCODE_API_KEY],
     },
     async (event) => {
